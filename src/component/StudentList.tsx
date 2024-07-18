@@ -25,7 +25,7 @@ const StudentList: React.FC = () => {
 
   const fetchSiswa = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/get-siswa');
+      const response = await axios.get('/api/get-siswa', { withCredentials: true });
       console.log('API Response:', response.data);
       if (response.data.success) {
         setSiswaData(response.data.data);
