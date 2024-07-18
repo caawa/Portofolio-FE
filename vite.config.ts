@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   plugins: [react()],
   css: {
-    postcss: './postcss.config.cjs', // atau '.js' jika Anda mengubahnya ke ESM
+    postcss: './postcss.config.cjs',
   },
   server: {
     proxy: {
@@ -13,7 +13,7 @@ export default defineConfig({
         target: 'http://localhost:3000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
-      }
-    }
-  }
+      }
+    }
+  }
 })

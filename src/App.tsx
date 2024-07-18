@@ -32,7 +32,7 @@ function App() {
             <Navbar />
             <Hero />
             <Project />
-            <StudentList /> 
+            <StudentList />
             <Footer/>
         </div>
       </motion.div>

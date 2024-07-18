@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import UpdateStudentForm from './updateForm';
-import AddStudentForm  from './addFrom'
 import '../App.css';
+const API_BASE_URL: string = 'http://localhost:3000';
+import AddStudentForm  from './addFrom'
 
 interface Student {
   id: number;
@@ -17,6 +18,14 @@ const StudentList: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [editingStudent, setEditingStudent] = useState<Student | null>(null);
   const [isAddingStudent, setIsAddingStudent] = useState<boolean>(false);
+  const API_BASE_URL: string = '/api';
+
+  const config: AxiosRequestConfig = {
+    baseURL: API_BASE_URL,
+    // Tambahkan konfigurasi lain jika diperlukan
+  };
+  
+  const axiosInstance = axios.create(config);
 
 
   useEffect(() => {
@@ -25,7 +34,7 @@ const StudentList: React.FC = () => {
 
   const fetchSiswa = async () => {
     try {
-      const response = await axios.get('/api/get-siswa', { withCredentials: true });
+      const response = await axios.get(API_BASE_URL + '/get-siswa');
       console.log('API Response:', response.data);
       if (response.data.success) {
         setSiswaData(response.data.data);
@@ -44,6 +53,15 @@ const StudentList: React.FC = () => {
     }
   };
 
+  const handleAddStudent = () => {
+    setIsAddingStudent(true);
+  };
+
+  const handleAddComplete = () => {
+    setIsAddingStudent(false);
+    fetchSiswa();
+  };
+  
   const handleDelete = async (id: number) => {
     if (window.confirm('Apakah Anda yakin ingin menghapus data ini?')) {
       try {
@@ -66,16 +84,6 @@ const StudentList: React.FC = () => {
 
   const handleUpdateComplete = () => {
     setEditingStudent(null);
-    fetchSiswa();
-  };
-
-
-  const handleAddStudent = () => {
-    setIsAddingStudent(true);
-  };
-
-  const handleAddComplete = () => {
-    setIsAddingStudent(false);
     fetchSiswa();
   };
 
