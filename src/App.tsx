@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
 import Navbar from './component/Navbar.tsx'
+import Skill from './component/skills.tsx'
 import Footer from './component/footer.tsx'
 import Hero from './component/hero.tsx'
 import Project from './component/project.tsx'
@@ -31,6 +32,8 @@ function App() {
           <div className='font-sans bg-neutral-950 m-0 text-slate-50'>
             <Navbar />
             <Hero />
+            <Skill/>
+            
             <Project />
             <StudentList />
             <Footer/>

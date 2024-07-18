@@ -73,6 +73,16 @@ function App() {
           </li>
           <li>
             <a
+              href="#skills"
+              className={`block py-2 lg:py-0 px-4 lg:px-0 relative group ${activeLink === 'project' ? 'text-rose-200' : 'text-white'} hover:text-rose-200`}
+              onClick={() => handleLinkClick('skill')}
+            >
+              Skills
+              <span className={`absolute left-0 bottom-0 h-0.5 bg-rose-200 transition-all duration-300 ${activeLink === 'project' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+            </a>
+          </li>
+          <li>
+            <a
               href="#project"
               className={`block py-2 lg:py-0 px-4 lg:px-0 relative group ${activeLink === 'project' ? 'text-rose-200' : 'text-white'} hover:text-rose-200`}
               onClick={() => handleLinkClick('project')}
