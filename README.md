@@ -20,3 +20,24 @@
 
 4. Halaman CRUD
 ![alt text](https://github.com/caawa/Portofolio-FE/blob/main/src/assets/crud.png?raw=true)
+
+# Langkah-langkah Instalasi
+
+1. Buka terminal editor dan ketikkan
+
+    ```bash
+    git clone https://github.com/caawa/Portofolio-FE.git
+    ```
+
+2. Setelah itu masuk ke direktori project dan ketikkan
+
+    ```bash
+    npm install
+    ```
+
+3. Terakhir, jalankan project
+
+    ```bash
+    npm run dev
+    ```
+Jangan lupa untuk running program backend nya!
