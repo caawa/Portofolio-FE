@@ -33,7 +33,6 @@ function App() {
             <Navbar />
             <Hero />
             <Skill/>
-            
             <Project />
             <StudentList />
             <Footer/>

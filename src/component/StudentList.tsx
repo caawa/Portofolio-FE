@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios, { AxiosRequestConfig } from 'axios';
 import UpdateStudentForm from './updateForm';
 import '../App.css';
-const API_BASE_URL: string = 'http://localhost:3000';
 import AddStudentForm  from './addFrom'
 
 interface Student {
@@ -18,15 +17,13 @@ const StudentList: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [editingStudent, setEditingStudent] = useState<Student | null>(null);
   const [isAddingStudent, setIsAddingStudent] = useState<boolean>(false);
-  const API_BASE_URL: string = '/api';
+  const API_BASE_URL: string = '/api';
 
   const config: AxiosRequestConfig = {
     baseURL: API_BASE_URL,
-    // Tambahkan konfigurasi lain jika diperlukan
   };
   
   const axiosInstance = axios.create(config);
-
 
   useEffect(() => {
     fetchSiswa();
@@ -65,15 +62,25 @@ const StudentList: React.FC = () => {
   const handleDelete = async (id: number) => {
     if (window.confirm('Apakah Anda yakin ingin menghapus data ini?')) {
       try {
-        const response = await axios.post('http://localhost:3000/delete-siswa', { id });
+        const response = await axiosInstance.post('/delete-siswa', { id });
         if (response.data.success) {
           fetchSiswa();
         } else {
-          setError('Gagal menghapus data');
+          setError('Gagal menghapus data: ' + response.data.message);
         }
       } catch (error) {
         console.error('Error deleting data:', error);
-        setError('Terjadi kesalahan saat menghapus data');
+        if (axios.isAxiosError(error)) {
+          if (error.response) {
+            setError(`Gagal menghapus data: ${error.response.status} - ${error.response.data.message}`);
+          } else if (error.request) {
+            setError('Tidak ada respons dari server. Cek koneksi Anda.');
+          } else {
+            setError('Error: ' + error.message);
+          }
+        } else {
+          setError('Terjadi kesalahan yang tidak diketahui');
+        }
       }
     }
   };
