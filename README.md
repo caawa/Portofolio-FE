@@ -1,30 +1,43 @@
-# React + TypeScript + Vite
+# E-Portofolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Fitur
 
-Currently, two official plugins are available:
+- Halaman portofolio
+- Input Data
+- Delete Data
+- Edit Data
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Dokumentasi
 
-## Expanding the ESLint configuration
+1. Halaman Home
+![alt text](https://github.com/caawa/Portofolio-FE/blob/main/src/assets/hero.png?raw=true)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. Halaman Skills
+![alt text](https://github.com/caawa/Portofolio-FE/blob/main/src/assets/skills.png?raw=true)
 
-- Configure the top-level `parserOptions` property like this:
+3. Halaman Projects
+![alt text](https://github.com/caawa/Portofolio-FE/blob/main/src/assets/project.png?raw=true)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+4. Halaman CRUD
+![alt text](https://github.com/caawa/Portofolio-FE/blob/main/src/assets/crud.png?raw=true)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Langkah-langkah Instalasi
+
+1. Buka terminal editor dan ketikkan
+
+    ```bash
+    git clone https://github.com/caawa/Portofolio-FE.git
+    ```
+
+2. Setelah itu masuk ke direktori project dan ketikkan
+
+    ```bash
+    npm install
+    ```
+
+3. Terakhir, jalankan project
+
+    ```bash
+    npm run dev
+    ```
+Jangan lupa untuk running program backend nya!
